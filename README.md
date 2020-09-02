@@ -4,6 +4,10 @@ Vector demo project.
 
 In the project directory, you can run:
 
+### `npm install`
+
+To install project dependencies.<br />
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
