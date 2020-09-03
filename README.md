@@ -1,8 +1,29 @@
 Vector demo project.
 
-## Available Scripts
+## Steps to run back-end application
 
-In the project directory, you can run:
+1. Create virtual environment
+
+### `$ python3 -m venv env`
+
+2. Activate environment
+
+### `$ source env/bin/activate`
+
+Go to project backend directory and run following commands
+
+3. Install application dependencies
+
+### `$ pip3 install -r requirements.txt`
+
+4. Run the application
+
+### `$ uvicorn app:app`
+
+
+## Steps to run front-end application
+
+Go to project root directory and run following commands
 
 ### `npm install`
 
