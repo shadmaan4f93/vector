@@ -1,18 +1,39 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useDispatch , useSelector} from "react-redux";
+import {getCard} from "../redux/actions"
 import { ReactSortable } from "react-sortablejs";
+
+import loader from "../assets/images/loader.gif";
 
 import Modal from "./Modal.js";
 
 import data from "../data/data.json";
 
 export default function Card() {
+  const dispatch = useDispatch();
+ 
+  const [state, setState] = useState([])
 
-	const [state, setState] = useState(data);
 	const [modalstate, setModalstate] = useState({
     isOpen: false,
     data: []
+  })
+  
+  useEffect(() => {
+		dispatch(getCard());
+  },[]);
+  
+  const response = useSelector((state) =>{
+		return state
 	})
-	
+  
+  useEffect(() => { 
+		if(response.card.getCardStatus) {
+      setState(response.card.cards.data)
+		}
+	},[response.card.getCardStatus]);
+
+
 	const toggleModal = (data) => {
     setModalstate({
       isOpen: !modalstate.isOpen,
@@ -39,6 +60,8 @@ export default function Card() {
 
   return (
 		<div className="container">	
+    
+      {state.length > 0 ? 
 			<ReactSortable list={state} setList={setState}>
 					{state.map(item => (
 						<div key={item.position} className="card custome-card">
@@ -46,7 +69,8 @@ export default function Card() {
 							<img src={item.img} onClick={() => {toggleModal(item)}}  style={{width:"250px", height: "200px"}} alt={item.title}/>
 						</div>
 					))}
-			</ReactSortable>	
+      </ReactSortable>	
+      : <div style={{textAlign:"center"}}><img src={loader} alt="..." /></div>}
 
 			<Modal show={modalstate.isOpen}
           onClose={() => {toggleModal(false)}}>
