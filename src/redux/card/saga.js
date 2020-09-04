@@ -15,10 +15,8 @@ const getCardsAsync = () => axiosInstance.get('cards');
 function* getCards() {
   try {
     const { data } = yield call(getCardsAsync);
-    debugger
     yield put(getCardSuccess(data));
   } catch (error) {
-    debugger;
     yield put(getCardError(error));
   }
 }

@@ -13,7 +13,7 @@ export default function Card() {
   const dispatch = useDispatch();
  
   const [state, setState] = useState([])
-
+  const [loading, setLoading] = useState(true);
 	const [modalstate, setModalstate] = useState({
     isOpen: false,
     data: []
@@ -57,6 +57,9 @@ export default function Card() {
     };
   },);
 
+  const imageLoading = () => {
+    setLoading(false);
+  }
 
   return (
 		<div className="container">	
@@ -65,7 +68,8 @@ export default function Card() {
 					{state.map(item => (
 						<div key={item.position} className="card custome-card">
 							<p>{item.title}</p><br></br> 
-							<img src={item.img} onClick={() => {toggleModal(item)}}  style={{width:"250px", height: "200px"}} alt={item.title}/>
+              <img src={loader} style={{ width:"250px", height: "200px", display: loading ? "block" : "none"}} alt="..." />
+							<img src={item.img} onClick={() => {toggleModal(item)}}  style={{width:"250px", height: "200px", display: loading ? "none" : "block"}} alt={item.title} onLoad={imageLoading}/>
 						</div>
 					))}
       </ReactSortable>	
