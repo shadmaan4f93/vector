@@ -1,35 +1,86 @@
-Vector demo project.
+# Vector Demo Application
 
-## Steps to run back-end application
+This is simple demo app to show crad on the web page with drag and drop functionality
 
-1. Create virtual environment
+## Getting Started
 
-### `$ python3 -m venv env`
+This project has separate backend and frontend app. The technology used to develop frontend is react and for backend python with starlette.
 
-2. Activate environment
+### Prerequisites
 
-### `$ source env/bin/activate`
+Software and package requirements.
 
-Go to project backend directory and run following commands
+For backend application.
 
-3. Install application dependencies
+```
+Python: 3.6 or Latest
+pip: 3.5 or Latest
 
-### `$ pip3 install -r requirements.txt`
+```
 
-4. Run the application
+For frontend application.
 
-### `$ uvicorn app:app`
+```
+Node: 10.15 or Latest
+npm: 5.8 or Latest
+
+```
+
+### Local Installation and Run
+
+Follow the steps to run backend application on your local system
+
+Create virtual environment and activate it.
+
+```
+> python3 -m venv env
+> source env/bin/activate
+
+```
+
+```
+Open command prompt and go to root directory of the project.
+Run the following commands:
+
+> cd backend
+> pip3 install -r requirements.txt              # Make sure requirements.txt file exist in the backend directory.
+> uvicorn --host 0.0.0.0 --port 8080 app:app    # To Run server.
+
+Open Browser and go to: http://localhost:8080/
+
+```
+
+Follow the steps to run frontend application on your local system
+
+```
+Open command prompt and go to root directory of the project.
+Run the following commands:
+
+> npm install  # Make sure package.json file exist in the root directory.
+> npm start    # To Run server.
+
+Open Browser and go to: http://localhost:3000/
+
+```
 
 
-## Steps to run front-end application
+### Local Installation and Run using docker
 
-Go to project root directory and run following commands
+Follow the steps to run application in docker.
 
-### `npm install`
+```
+Open command prompt and go to root directory of the project.
+Run the following commands:
 
-To install project dependencies.<br />
+> docker-compose up -d          # Make sure docker is runing on yor local system.
+> docker-compose up --build     # To Rebuild on change
+> docker-compose up
 
-### `npm start`
+Frontend accessable on : http://localhost:3000/
+backend accessable on : http://localhost:8080/
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+
+## Authors
+
+* **MD SHADMAAN** - *Full-stack developer* - [skwebinfo](https://www.skwebinfo.com/)
