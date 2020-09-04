@@ -60,7 +60,6 @@ export default function Card() {
 
   return (
 		<div className="container">	
-    
       {state.length > 0 ? 
 			<ReactSortable list={state} setList={setState}>
 					{state.map(item => (
